@@ -49,7 +49,7 @@ function Home() {
     const fetchDataForPosts = async () => {
       try {
         const response = await fetch(
-          `https://rofof-api-production.up.railway.app:443/api/v1/books/recommendations`
+          `http://localhost:5000/api/v1/books/recommendations`
         );
         if (!response.ok) {
           throw new Error(`HTTP error: Status ${response.status}`);
