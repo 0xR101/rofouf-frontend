@@ -4,6 +4,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./style.css";
+import { serverRoot } from "../../constants/backend.jsx";
 
 const HorizontalBookSlider = ({ user = "" }) => {
   const [booksShown, setBooksShown] = useState([]);
@@ -16,7 +17,7 @@ const HorizontalBookSlider = ({ user = "" }) => {
       sort: "dateDesc",
     }).toString();
 
-    fetch(`http://localhost:5000/api/v1/books?${queryParams}`)
+    fetch(`${serverRoot}/api/v1/books?${queryParams}`)
       .then((response) => response.json())
       .then((data) => {
         const bookComponents = data.data.books.map((book) => (

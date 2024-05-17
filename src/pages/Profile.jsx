@@ -6,6 +6,7 @@ import { FaLocationDot } from "react-icons/fa6";
 import { FaUser } from "react-icons/fa";
 import { useNavigate, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
+import { serverRoot } from "../constants/backend.jsx";
 
 export default function Profile() {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -24,7 +25,7 @@ export default function Profile() {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/v1/users/getUser?username=${username}`
+          `${serverRoot}/api/v1/users/getUser?username=${username}`
         );
         if (response.ok) {
           const data = await response.json();
@@ -82,7 +83,7 @@ export default function Profile() {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/v1/users/updateUser`,
+        `${serverRoot}/api/v1/users/updateUser`,
         {
           method: "PATCH",
           body: formData, // No need to set Content-Type manually

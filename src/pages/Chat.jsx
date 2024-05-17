@@ -3,6 +3,7 @@ import NavBar from "./../components/nav/NavBar.jsx";
 import { ChatEngine } from "react-chat-engine";
 import { useSearchParams } from "react-router-dom";
 import "./../chatStyle.css";
+import { projectIP } from "../constants/chat.jsx";
 
 function Chat(props) {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -20,7 +21,7 @@ function Chat(props) {
 
       <ChatEngine
         height="calc(100vh - 80px)"
-        projectID="e5281aef-af2a-4606-b69f-ee90c5ad7ce3"
+        projectID={projectIP}
         userName={user}
         userSecret={password}
       />

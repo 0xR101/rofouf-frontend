@@ -3,6 +3,7 @@ import { useLocation } from "react-router-dom";
 import NavBar from "../components/nav/NavBar.jsx";
 import Footer from "../components/footer/Footer.jsx";
 import BookListing from "../components/bookListing/BookListing.jsx";
+import { serverRoot } from "../constants/backend.jsx";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -24,7 +25,7 @@ export default function BooksList() {
       offerType: selectedOfferTypes.join(","),
     }).toString();
 
-    fetch(`http://localhost:5000/api/v1/books?${queryParams}`)
+    fetch(`${serverRoot}/api/v1/books?${queryParams}`)
       .then((response) => response.json())
       .then((data) => {
         const bookComponents = data.data.books.map((book) => (

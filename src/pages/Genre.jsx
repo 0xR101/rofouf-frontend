@@ -4,6 +4,7 @@ import NavBar from "../components/nav/NavBar.jsx";
 import Footer from "../components/footer/Footer.jsx";
 import BookListing from "../components/bookListing/BookListing.jsx";
 import { popularBookGenres } from "../constants/genres"; // Ensure the correct path
+import { serverRoot } from "../constants/backend.jsx";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -39,7 +40,7 @@ export default function BooksByGenre() {
         offerType: selectedOfferTypes.join(","),
       }).toString();
 
-      fetch(`http://localhost:5000/api/v1/books?${queryParams}`)
+      fetch(`${serverRoot}/api/v1/books?${queryParams}`)
         .then((response) => response.json())
         .then((data) => {
           const bookComponents = data.data.books.map((book) => (

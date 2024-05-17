@@ -1,4 +1,7 @@
+import { serverRoot } from "../../constants/backend";
+
 function Ad() {
+  const image = `${serverRoot}/ad/ad.png`
   return (
     <>
       <div
@@ -14,8 +17,8 @@ function Ad() {
             height: "auto",
             display: "block",
           }}
-          src="src\assets\image\ad.png"
-          alt=""
+          src={image}
+          alt="can not laod the image"
         />
       </div>
     </>

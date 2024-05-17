@@ -1,10 +1,7 @@
 import { useDebugValue, useRef, useState, useEffect } from "react";
-import DropdownMenu from "../dropdown/DropDownMenu";
-// import { useNavigate } from "react-router-dom";
 import { BsPersonCircle } from "react-icons/bs";
 
 import { Link } from "react-router-dom";
-import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
 function NavBar() {

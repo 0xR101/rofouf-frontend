@@ -13,6 +13,7 @@ import { setYear, startOfYear } from "date-fns";
 
 import "react-datepicker/dist/react-datepicker.css";
 import "./style.css";
+import { serverRoot } from "../../constants/backend";
 // import { set } from "../../../../backend/app";
 // import { set } from "../../../../backend/app";
 
@@ -181,42 +182,6 @@ const OrderDetails = () => {
     }));
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   const errors = validateForm();
-  //   if (Object.keys(errors).length > 0) {
-  //     console.error("Validation errors:", errors);
-  //     // Optionally display these errors in the UI
-  //     return; // Stop the submission if there are errors
-  //   }
-
-  //   // Temporary section to test what the request will look like
-  //   const options = {
-  //     method: "POST",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //     body: JSON.stringify(formData),
-  //   };
-  //   console.log("Prepared request for submission:", options);
-
-  //   // Assuming the fetch will be uncommented for actual use
-  //   // fetch("http://localhost:5000/api/v1/books/", options)
-  //   //   .then(response => {
-  //   //     if (!response.ok) {
-  //   //       throw new Error("Network response was not ok");
-  //   //     }
-  //   //     return response.json(); // Assuming the response is JSON
-  //   //   })
-  //   //   .then(data => {
-  //   //     console.log("Data successfully posted:", data);
-  //   //   })
-  //   //   .catch(error => {
-  //   //     console.error("Error posting data:", error);
-  //   //   });
-
-  //   resetForm(); // Reset the form after successful validation and logging
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -256,7 +221,7 @@ const OrderDetails = () => {
     const token = localStorage.getItem("token");
 
     try {
-      const response = await fetch("http://localhost:5000/api/v1/books/", {
+      const response = await fetch(`${serverRoot}/api/v1/books/`, {
         method: "POST",
         body: data,
         Authorization: `Bearer ${token}`,

@@ -6,6 +6,7 @@ import HorizontalBookSlider from "../components/HorizontalBookSlider/HorizontalB
 import { useState, useEffect } from "react";
 
 import { useSearchParams } from "react-router-dom";
+import { serverRoot } from "../constants/backend.jsx";
 
 function Seller() {
   const [searchParams] = useSearchParams();
@@ -19,7 +20,7 @@ function Seller() {
     const fetchSellerInfo = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/v1/users/getUserInfo?username=${sellerUsername}`
+          `${serverRoot}/api/v1/users/getUserInfo?username=${sellerUsername}`
         );
         if (!response.ok) {
           throw new Error(`HTTP error: Status ${response.status}`);

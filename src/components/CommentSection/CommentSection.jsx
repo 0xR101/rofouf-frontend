@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import PostComment from "./../PostComment/PostComment.jsx";
 import Comment from "./../Comments/Comments.jsx";
+import { serverRoot } from "../../constants/backend.jsx";
 
 const CommentsSection = ({ seller }) => {
   const [comments, setComments] = useState([]);
@@ -16,7 +17,7 @@ const CommentsSection = ({ seller }) => {
         }
 
         const response = await fetch(
-          `http://localhost:5000/api/v1/comments?commentIds=${seller.comments.join(",")}`
+          `${serverRoot}/api/v1/comments?commentIds=${seller.comments.join(",")}`
         );
         if (!response.ok) {
           throw new Error(`HTTP error: Status ${response.status}`);

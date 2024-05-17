@@ -1,0 +1,1 @@
+export const serverRoot = "https://rofof-api-production.up.railway.app"

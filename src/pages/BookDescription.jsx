@@ -6,6 +6,9 @@ import { Link, useSearchParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import StarRating from "../components/StarRating/StarRating.jsx";
 import { useState, useEffect } from "react";
+import { serverRoot } from "../constants/backend.jsx";
+
+
 
 function BookDescription() {
   const navigate = useNavigate();
@@ -27,7 +30,7 @@ function BookDescription() {
     const fetchDataForPosts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/v1/books/${id}`
+          `${serverRoot}${id}`
         );
         if (!response.ok) {
           throw new Error(`HTTP error: Status ${response.status}`);

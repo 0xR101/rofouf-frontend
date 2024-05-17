@@ -6,6 +6,7 @@ import { useState } from "react";
 import axios from "axios";
 
 import { useNavigate } from "react-router-dom";
+import { serverRoot } from "../constants/backend.jsx";
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -108,7 +109,7 @@ function SignUp() {
         email: formData.email,
         password: formData.password,
       };
-      fetch("http://localhost:5000/api/v1/users/signup", {
+      fetch(`${serverRoot}/api/v1/users/signup`, {
         method: "POST",
         crossDomain: true,
         headers: {

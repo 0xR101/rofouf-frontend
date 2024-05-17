@@ -5,6 +5,7 @@ import BookCard from "./../components/bookCard/BookCard.jsx";
 import Footer from "./../components/footer/Footer.jsx";
 import { useState, useEffect } from "react";
 import ReactLoading from "react-loading";
+import { serverRoot } from "../constants/backend.jsx";
 
 // const books = [
 //   {
@@ -49,7 +50,7 @@ function Home() {
     const fetchDataForPosts = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/v1/books/recommendations`
+          `${serverRoot}/api/v1/books/recommendations`
         );
         if (!response.ok) {
           throw new Error(`HTTP error: Status ${response.status}`);
