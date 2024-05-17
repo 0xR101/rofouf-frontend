@@ -4,6 +4,9 @@ import { BsPersonCircle } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+import {serverRoot} from './../../constants/backend.jsx';
+
+
 function NavBar() {
   const [userData, setUserData] = useState(null);
 
@@ -46,7 +49,11 @@ function NavBar() {
         >
           <div className="flex flex-grow items-center gap-4 ">
             <a href="/" className="shrink-0 px-0">
-              <img src="src/assets/logo.svg" alt="Logo" className="h-8" />
+              <img
+                src={`${serverRoot}/icons/logo.svg`}
+                alt="Logo"
+                className="h-8"
+              />
             </a>
 
             <div className="flex-grow max-w-lg  relative max-sm:hidden">
@@ -67,7 +74,11 @@ function NavBar() {
               className="flex items-center gap-2 h-10  p-2 rounded-full border-none  bg-plaster "
               onClick={handlePostOfferClick}
             >
-              <img src="src\assets\add.svg" alt="Post Offer" className="h-8" />{" "}
+              <img
+                src={`${serverRoot}/icons/add.svg`}
+                alt="Post Offer"
+                className="h-8"
+              />{" "}
               {/* Icon height */}
               <span className="hidden sm:block text-primary font-bold">
                 Post Offer
@@ -82,7 +93,7 @@ function NavBar() {
               className="p-2"
             >
               <img
-                src="src\assets\notficaiton.svg"
+                src={`${serverRoot}/icons/notficaiton.svg`}
                 alt="Notifications"
                 className="h-8" // Icon height
               />
