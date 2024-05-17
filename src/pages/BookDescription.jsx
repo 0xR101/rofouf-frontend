@@ -27,7 +27,7 @@ function BookDescription() {
   useEffect(() => {
     const fetchDataForPosts = async () => {
       try {
-        const response = await fetch(`${serverRoot}/api/v1/books${id}`);
+        const response = await fetch(`${serverRoot}/api/v1/books/${id}`);
         if (!response.ok) {
           throw new Error(`HTTP error: Status ${response.status}`);
         }

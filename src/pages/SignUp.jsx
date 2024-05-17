@@ -3,7 +3,6 @@ import { PiLockFill } from "react-icons/pi";
 import NavBar from "./../components/nav/NavBar.jsx";
 import { HiMail } from "react-icons/hi";
 import { useState } from "react";
-import axios from "axios";
 
 import { useNavigate } from "react-router-dom";
 import { serverRoot } from "../constants/backend.jsx";
@@ -99,9 +98,7 @@ function SignUp() {
       return;
     }
     try {
-      // If the form data is valid, send it to the backend
-      // adjust the path to the correct server endpoint
-      // await axios.post("http://localhost:5000/api/v1/users", formData);
+
 
       let userData = {
         name: formData.name,
