@@ -8,8 +8,6 @@ import StarRating from "../components/StarRating/StarRating.jsx";
 import { useState, useEffect } from "react";
 import { serverRoot } from "../constants/backend.jsx";
 
-
-
 function BookDescription() {
   const navigate = useNavigate();
 
@@ -29,9 +27,7 @@ function BookDescription() {
   useEffect(() => {
     const fetchDataForPosts = async () => {
       try {
-        const response = await fetch(
-          `${serverRoot}${id}`
-        );
+        const response = await fetch(`${serverRoot}/api/v1/books${id}`);
         if (!response.ok) {
           throw new Error(`HTTP error: Status ${response.status}`);
         }
