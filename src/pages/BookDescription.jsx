@@ -72,7 +72,7 @@ function BookDescription() {
                   />
                 </Link>
                 <div className="flex flex-col gap-1">
-                  <StarRating rating={4.4} />
+                  <StarRating rating={0} />
                 </div>
               </div>
               <div className="text-primary">
